@@ -395,7 +395,7 @@ io.interactive()
 ```
 The program segfaults, with the instruction pointer equal to `0x61716161`
 
-![segfault](segfault.png)
+![segfault](never_segfault.png)
 
 We can call `cyclic_find(0x61716161)` in pwntools to calculate the offset from the buffer pointer in which the return address is stored. For this binary it happens to be 62.
 
