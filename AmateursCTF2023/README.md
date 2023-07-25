@@ -7,5 +7,6 @@ I don't have time to do writeups of all the challenges, but I'll select some of 
 
 
 
-| WRITEUP                               [|](|) ADDITIONAL COMMENTS
-| [simple heap v1](./simple-heap-v1.md) | Lots of fun
+| WRITEUP                               | ADDITIONAL COMMENTS |
+----------------------------------------|---------------------|
+| [simple heap v1](./simple-heap-v1.md) | Lots of fun         |
