@@ -11,3 +11,4 @@ I don't have time to do writeups of all the challenges, but I'll select some of 
 ----------------------------------------|---------------------|
 | [simple heap v1](./simple-heap-v1.md) | Lots of fun         |
 | [The Vault 2](./the-vault-2.md)       |                     |
+| [Censorship Pyjails](./censorships.md)|                     |
