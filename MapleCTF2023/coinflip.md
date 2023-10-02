@@ -1,7 +1,7 @@
 # Intro
 
-Over the weekend, I participated in Maple CTF as part of my university's CTF team. I didn't solve too many challenges, but I figured I'd do a writeup of one of them that I particularly enjoyed.
-As with all of the writeups I do, I'm going to try to walk through my thought process on top of providing a solution to the challenge.
+Over the weekend, I participated in Maple CTF as part of UMD's CTF team. I didn't solve too many challenges, but I figured I'd do a writeup of one of them that I particularly enjoyed.
+As with all of the writeups I do, I'm going to try to walkthrough my thought process on top of providing a solution to the challenge.
 
 # The Challenge
 
@@ -360,7 +360,7 @@ So going into the second loop, we want our array to be of the form `[0,1,1566083
 
 ## The first loop
 Let's look at the first loop in `init_by_array` now:
-```
+```C
 init_genrand(self, 19650218U);
 i=1; j=0;
 k = (N>key_length ? N : key_length);
@@ -381,7 +381,7 @@ First, let's define `targets` to be the array that we want going into the second
 If we set `init_key[j]` to simply be `-((mt[i-1] ^ (mt[i-1] >> 30)) * 1664525U)) - j + targets[i]`, then when we add the two quantities together we're left with just `targets[i]` as the value for `mt[i]`.
 
 We can do this in code with an auxiliary state buffer. Since we know the state of `mt` going into the loop, we can simulate the seed function and set the key accordingly.
-```
+```C
 RandomObject ro2;
 init_genrand(&ro2, 19650218U);
 
@@ -398,7 +398,7 @@ key[623] -= 1036999696; // set final key value
 Note that the loop doesn't set the final key value properly, so we set it manually. The value 1036999696 was found simply by running the loop without the final key value set, and then taking the difference.
 
 If we've done everything properly, the key value we get from this program will work.
-```
+```C
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
