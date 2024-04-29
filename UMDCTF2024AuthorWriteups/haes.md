@@ -51,11 +51,11 @@ Round two consists of `sub_bytes -> shift_planes -> mix_columns -> add_round_key
 Here, our active bytes are now moved around. I'm not sure what the exact permutation from the code looks like, so I'll illustrate with an equivalent permutation. The bytes that were previously all in the same column
 are moved to a different column.
 
-![r2 after sp](R2 After SP.png)
+![r2 after sp](R2_After_SP.png)
 
 The `mix_columns` comes next, which turns our 4 active bytes into 16.
 
-![r2 after mc](R2 After MC.png)
+![r2 after mc](R2_After_MC.png)
 
 Finally, `add_round_key` preserves the picture.
 
