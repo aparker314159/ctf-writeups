@@ -34,7 +34,7 @@ Let's look at the first round of HAES: `add_round_key -> sub_bytes -> shift_plan
 
 I'll use the following picture to denote our state. Instead of drawing a 4x4x4 array, I will use a 16x4 array (so the `shift_planes` step just becomes a row permutation). Active bytes are in purple, and inactive bytes are white.
 
-![r1](./Lambda Set R1.png)
+![r1](./Lambda_Set_R1.png)
 
 After the `add_round_key` and `sub_bytes_steps` the active byte remains active, and the inactive bytes remain inactive. This is because these transformations are one-to-one and operate byte-by-byte.
 
@@ -43,7 +43,7 @@ After the `shift_planes` step, we still have the same picture, since the `shift_
 Then, there's a `mix_columns` step. `mix_columns` is a more complicated operation operating on the columns of our state rather than the individual bytes. Right now, all you need to know is mixing the first column makes
 all the bytes active in that column. We finish with an `add_round_key` which preserves active and inactive bytes as established. So, going into round 2, we have this:
 
-![r2](./Lambda Set R2.png)
+![r2](./Lambda_Set_R2.png)
 
 ## Round 2
 Round two consists of `sub_bytes -> shift_planes -> mix_columns -> add_round_key`. We've already established that `sub_bytes` does nothing to our set, so let's go onto `shift_planes`.
@@ -72,7 +72,7 @@ The `sub_bytes` keeps all of our active bytes active, and the `shift_planes` doe
 bytes together, which results in bytes that are no longer active or inactive in our terminology. However, there is a weaker property that holds: the XOR-sum of the bytes in each position is still 0. This is because `mix_columns`
 is linear with respect to the XOR operation. We'll denote this weaker property with a yellow byte.
 
-![r4](R4 after MC.png)
+![r4](R4_after_MC.png)
 
 The `add_round_key` operation still preserves our yellow bytes, so we're good to move onto the final round.
 
