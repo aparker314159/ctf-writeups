@@ -34,7 +34,7 @@ Let's look at the first round of HAES: `add_round_key -> sub_bytes -> shift_plan
 
 I'll use the following picture to denote our state. Instead of drawing a 4x4x4 array, I will use a 16x4 array (so the `shift_planes` step just becomes a row permutation). Active bytes are in purple, and inactive bytes are white.
 
-![r1](Lambda Set R1.png)
+![r1](./Lambda Set R1.png)
 
 After the `add_round_key` and `sub_bytes_steps` the active byte remains active, and the inactive bytes remain inactive. This is because these transformations are one-to-one and operate byte-by-byte.
 
@@ -43,7 +43,7 @@ After the `shift_planes` step, we still have the same picture, since the `shift_
 Then, there's a `mix_columns` step. `mix_columns` is a more complicated operation operating on the columns of our state rather than the individual bytes. Right now, all you need to know is mixing the first column makes
 all the bytes active in that column. We finish with an `add_round_key` which preserves active and inactive bytes as established. So, going into round 2, we have this:
 
-![r2](Lambda Set R2.png)
+![r2](./Lambda Set R2.png)
 
 ## Round 2
 Round two consists of `sub_bytes -> shift_planes -> mix_columns -> add_round_key`. We've already established that `sub_bytes` does nothing to our set, so let's go onto `shift_planes`.
